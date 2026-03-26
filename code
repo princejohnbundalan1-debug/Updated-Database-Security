@@ -1,0 +1,5 @@
+        const hashedPassword = await bcrypt.hash(password, 10);
+        await connection.query(
+            'INSERT INTO users (username, email, password, role, is_verified) VALUES (?, ?, ?, ?, ?)',
+            [username, email, hashedPassword, 'user', 0]
+        );
